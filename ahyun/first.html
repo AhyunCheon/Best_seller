@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="./first_style.css"/>
+    <link rel="stylesheet" type="text/css" href="./slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="./slick/slick-theme.css"/>
+    <link rel="stylesheet" href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" />
+
+    <!-- include Cycle plugin -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script type="text/javascript" src="./jquery.cycle.all.js"></script>
+
+
+    <style>
+
+    </style>
+    <script>
+        function preloading (imageArray) {
+            let n = imageArray.length;
+            for (let i = 0; i < n; i++) {
+                let img = new Image(); img.src = imageArray[i];
+            }
+        }
+        preloading([ 'slide1.jpg', 'slide2.jpg','slide3.jpg','slide4.jpg','slide5.jpg' ])
+    </script>
+
+</head>
+<body>
+
+<div class="topnav"> <!--This is menu bar.-->
+    <a href="aboutUs.html" id="a1">ABOUT US</a>
+    <a href="#">GIFT</a>
+    <a href="#">EXCHANGE</a>
+    <a href="#">DONATION</a>
+</div>
+
+<script type="text/javascript">
+    $(function(){
+        var vi = 600;  // 하단에 메뉴 표시할 스크롤 위치값 지정
+        $(window).scroll(function(){
+            var num = $(window).scrollTop();
+
+            if( num > vi ){
+                $(".topnav").fadeIn();
+            }else{
+                $(".topnav").fadeOut();
+            }
+        });
+    });
+</script>
+<div style="border:solid 6px white; z-index: 9000; width:90%; height:760px; position: absolute; margin-top: 3%; margin-left: 5%; margin-right: 5%;">
+</div>
+<div style=" z-index: 5000;width: 100%; height: 880px; background-color: rgba(0,0,0,0.5); position: absolute; content: '';"></div>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#fadeSlide').cycle({
+            fx: 'fade'
+        });
+    });
+</script>
+<div id="fadeSlide">
+    <img class="slideShow" src="slide3.jpg" alter="slide_image"/>
+    <img class="slideShow" src="slide2.jpg" alter="slide_image"/>
+    <img class="slideShow" src="slide3.jpg" alter="slide_image"/>
+    <img class="slideShow" src="slide4.jpg" alter="slide_image"/>
+    <img class="slideShow" src="slide5.jpg" alter="slide_image"/>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#mainS').cycle({
+            fx: 'scrollDown'
+        });
+    });
+</script>
+<div id="mainS" >
+    <h1 class="anyone">Anyone who likes books can participate!</h1>
+    <h1 class="anyone">A novel and exciting book exchange project!</h1>
+    <h1 class="anyone">You can prepare one of your favorite books.</h1>
+    <h1 class="anyone">And then, Just send it to someone you don't know.</h1>
+    <h1 class="anyone">You will get a book as a gift from someone too!</h1>
+</div>
+
+<div><button class="topBtn btn">right now!</button></div>
+<div class="startDiv"><!--Gift event 끝나고 시작하는 부분-->
+    <h2 id="scrollDown" style="text-align: center;" class="clickID blinking" onclick="fnMove()">SCROLL &nbsp; DOWN</h2></a>
+</div>
+<script>
+    function fnMove(){
+        var offset = $("#downScroll").offset();
+        $('html, body').animate({scrollTop : offset.top}, 1000);
+    }
+</script>
+<div id="downScroll" >
+    <br/><br/><br/>
+    <h1 style="text-align: center; color:white;" data-aos="zoom-in">A book that you might get as a gift</h1>
+</div>
+
+<script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
+<script src="./slick/slick.min.js" type="text/javascript" charset="utf-8"></script>
+<section class="regular slider">
+    <div><img src="book1.jpg" class="bi"></div>
+    <div><img src="book2.jpg" class="bi"></div>
+    <div><img src="book3.jpg" class="bi"></div>
+    <div><img src="book4.jpg" class="bi"></div>
+    <div><img src="book5.jpg" class="bi"></div>
+    <div><img src="book6.jpg" class="bi"></div>
+    <div><img src="book7.jpg" class="bi"></div>
+    <div><img src="book8.jpg" class="bi"></div>
+</section>
+
+<script type="text/javascript">
+    var newJquery=$.noConflict(true);
+
+    newJquery(document).on('ready', function() {
+        newJquery(".regular").slick({
+            dots: false,
+            infinite: true,
+            slidesToShow: 4,
+            slidesToScroll: 1,
+            autoplay:true,
+            autoplaySpeed:2000,
+        });
+
+    });
+</script>
+<section class="bottomS">
+    <div id="bottom1" data-aos="fade-right" >
+        <div><button class="Btn1 btn">Click!</button></div>
+        <img src="bookex.png" alt="exchange_intro" id="eIntro">
+        <p id="doS">Give a book, Get a book</p>
+    </div>
+
+    <div id="bottom2" data-aos="fade-left">
+        <div><button class="Btn2 btn">Here!</button></div>
+            <img src="donateIntro.png" alt="donation_intro" id="dIntro">
+            <p id="exS">Where to donate books</p>
+    </div>
+</section>
+<script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
+<script>
+    AOS.init({
+        easing: 'ease-out-back',
+        duration: 1000
+    });
+    $(window).on('load', function() {
+        AOS.refresh();
+    });
+</script>
+    <div id="contact" data-aos="flip-left">
+        <br/><br/>
+        <h1>Contact Us</h1>
+        <form action="" method="get"><!--this show forms.-->
+            NAME &nbsp;&nbsp; <input type="text" name="name"/><br/>
+            EMAIL &nbsp;&nbsp;<input type="email" name="email" /><br/>
+            <hr align="center" style="width:40%;">
+            <textarea name="memo" rows="15" cols="80"></textarea><br/>
+            <input type="submit" value="SUBMIT" class="submitBtn"/>
+            <br/>
+        </form>
+        <br/><br/>
+    </div>
+<script>
+    $( document ).ready( function() {
+        $( '.top' ).click( function() {
+            $( 'html, body' ).animate( { scrollTop : 0 }, 800 );
+            return false;
+        } );
+    } );
+</script>
+    <div class="footNav"> <!--This is menu bar.-->
+        <a href="aboutUs.html" style="margin-left: 20px;">About Us</a>
+        <a href="#order">Privacy Statement</a>
+        <a href="#event">FAQ</a>
+        <a href="#contact">Site map</a>
+       <a href="#" style="margin-left: 70%;" class="top">TOP ▲</a>
+    </div>
+<footer>
+    <br/><br/>
+    <div style="margin-left: 40px;">
+    <p>Team / Best Seller</p>
+    <p>Member / Cheon, Ahyun &nbsp;|&nbsp; Kim, Jung Hoon &nbsp;|&nbsp; Lee, Eun Taek
+    <p>Instagram / @a_hyun1000 &nbsp;|&nbsp; @letoasis &nbsp;|&nbsp; @hooonij</p>
+    <p>Address / 1, Cheongdaero, Seowon-gu, Cheoungju, Chungbuk</p>
+    <p>COPYRIGHT(C)2019 BEST SELLER. ALL RIGHTS RESERVED. &nbsp;DESIGN BY BEST SELLER</p>
+    </div>
+    <br/><br/>
+</footer>
+</body>
+</html>

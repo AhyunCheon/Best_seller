@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <title>Title</title>
+    <style>
+        body{
+            margin: 0;
+            background-image: url("bg.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: right top;
+            background-attachment: fixed;
+        }
+        .topnav {
+            z-index: 9999;
+            margin-right: auto;
+            overflow: hidden;
+            background-color: rgba(207,212,206,0.7);
+            text-align: center;
+            /* transition: top .25s ease .5s;*/
+            position: fixed;
+            width: 100%;
+            left:0px;
+            top:0px;
+            display:none;
+        }
+        #a1{
+            margin-left: 37%;
+        }
+        .topnav a {
+            float: left;
+            display: block;
+            color: white;
+            font-size: 27px;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        /* Change color on hover */
+        .topnav a:hover {
+            background-color: rgb(190, 163, 194);
+            color: white;
+        }
+        #giftTitle{
+            color: white;
+            text-align: center;
+            font-size: 50px;
+            margin-top: 100px;
+        }
+        input{
+            background-color: rgba(0,0,0,0);
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 3px solid #D1D3CF;
+            -webkit-transition: 0.5s;
+            transition: 0.5s;
+            outline: none;
+            color: white;
+            font-size: 18px;
+        }
+        input:focus {
+            border: 3px solid #6C4F70;
+        }
+        #applyForm{
+            color: white;
+            text-align: left;
+            margin-left: 30%;
+        }
+        .Btn:hover{
+            background-color: #D1D3CF;
+            color: #39324B;
+        }
+
+        footer{
+            background-color: #38324C;
+            color: white;
+            font-size: 18px;
+        }
+        .footNav {
+            margin-right: auto;
+            overflow: hidden;
+            background-color: #312F37;
+            text-align: center;
+        }
+        .footNav a {
+            float: left;
+            display: block;
+            color: white;
+            font-size: 18px;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        /* Change color on hover */
+        .footNav a:hover {
+            background-color: #D1D3CF;
+            color: #6C4F70;
+        }
+    </style>
+</head>
+<body>
+<div class="topnav"> <!--This is menu bar.-->
+    <a href="first.html" id="a1">HOME</a>
+    <a href="aboutUs.html">ABOUT US</a>
+    <a href="#">EXCHANGE</a>
+    <a href="#">DONATION</a>
+</div>
+
+<script type="text/javascript">
+    $(function(){
+        var vi = 300;  // 하단에 메뉴 표시할 스크롤 위치값 지정
+        $(window).scroll(function(){
+            var num = $(window).scrollTop();
+
+            if( num > vi ){
+                $(".topnav").fadeIn();
+            }else{
+                $(".topnav").fadeOut();
+            }
+        });
+    });
+</script>
+<br/><br/>
+<h1 id="giftTitle">Welcome to Book Exchange Project!</h1>
+<div class="square" style="width:900px; height:40%; border: solid 3px white; margin-left:auto; margin-right: auto;">
+    <div id="applyForm">
+
+        <div id="s1">
+            <p>당신에게 책을 선물해줄 분을 위해 작성해주세요.</p>
+            <form action="" method="get"><!--this show forms.-->
+                name &nbsp;&nbsp; <input type="text" name="name"/><br/>
+                phone &nbsp;&nbsp; <input type="tel" name="phone" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" required />
+                (ex: 010-1234-6789)<br/>
+                e-mail &nbsp;&nbsp;<input type="email" name="email" /><br/>
+                <input type="button" id="next1" value="next" class="Btn"><br />
+            </form>
+        </div>
+
+        <div id="s2" style="display: none">
+            <p>꼭 상세주소를 정확하게 입력해주세요.</p>
+            <form>
+                zip code &nbsp;&nbsp; <input type="text" name="" class="postcodify_postcode5" value="" />
+                <input type="button" id="postcodify_search_button" value="search" class="Btn"><br />
+                The road name &nbsp;&nbsp; <input type="text" name="" class="postcodify_address" value="" style="width:500px" /><br />
+                detail address &nbsp;&nbsp; <input type="text" name="" class="postcodify_details" value="" style="width:500px"/><br />
+                <input type="button" id="next2" value="next" class="Btn"><br />
+            </form>
+        </div>
+        <!-- jQuery와 Postcodify를 로딩한다 -->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+        <script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
+        <!-- "검색" 단추를 누르면 팝업 레이어가 열리도록 설정한다 -->
+        <script> $(function() { $("#postcodify_search_button").postcodifyPopUp(); }); </script>
+
+        <div id="s3" style="display: none">
+            <p>당신이 선물 보낼 책에 대해 작성해주세요.</p>
+            <p>저희의 정보수집을 위한 정보입니다!</p>
+            <form>
+                book title &nbsp;&nbsp; <input type="text" name="title"/><br/>
+                author &nbsp;&nbsp; <input type="text" name="author"/><br/>
+                publisher &nbsp;&nbsp; <input type="text" name="publisher"/><br/>
+                <br/><br/>
+                <input type="submit" value="SUBMIT" class="Btn" style="margin-left: 15%;"/>
+                <br/>
+            </form>
+        </div>
+
+        <br/><br/>
+    </div>
+</div>
+<script>
+    $(document).ready(function(){
+        $("#next1").click(function(){
+            $("#s1").fadeOut(500);
+            $("#s2").show(500);
+        });
+        $("#next2").click(function(){
+            $("#s2").hide(500);
+            $("#s3").show();
+        });
+    });
+</script>
+<br/><br/><br/><br/><br/><br/><br/>
+<div class="footNav"> <!--This is menu bar.-->
+    <a href="aboutUs.html" style="margin-left: 20px;">About Us</a>
+    <a href="#order">Privacy Statement</a>
+    <a href="#event">FAQ</a>
+    <a href="#contact">Site map</a>
+    <a href="#" style="margin-left: 70%;" class="top"> &nbsp;TOP&nbsp; </a>
+</div>
+<footer>
+    <br/><br/>
+    <div style="margin-left: 40px;">
+        <p>Team / Best Seller</p>
+        <p>Member / Cheon, Ahyun &nbsp;|&nbsp; Kim, Jung Hoon &nbsp;|&nbsp; Lee, Eun Taek
+        <p>Instagram / @a_hyun1000 &nbsp;|&nbsp; @letoasis &nbsp;|&nbsp; @hooonij</p>
+        <p>Address / 1, Cheongdaero, Seowon-gu, Cheoungju, Chungbuk</p>
+        <p>COPYRIGHT(C)2019 BEST SELLER. ALL RIGHTS RESERVED. &nbsp;DESIGN BY BEST SELLER</p>
+    </div>
+    <br/><br/>
+</footer>
+</body>
+</html>

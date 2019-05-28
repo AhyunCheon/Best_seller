@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BLUEB</title>
+    <style>
+        body {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: -webkit-box;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-align: center;
+            -moz-box-align: center;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            -moz-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            flex-direction: column;
+            background-color: #eee;
+        }
+
+        .progressbar-container {
+            width: 500px;
+            padding: 1rem;
+            border-radius: 5px;
+            background-color: #fff;
+        }
+
+        .progress-value {
+            display: -webkit-box;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: justify;
+            -moz-box-pack: justify;
+            -ms-flex-pack: justify;
+            -webkit-justify-content: space-between;
+            justify-content: space-between;
+            font-size: .875rem;
+            padding-bottom: .25rem;
+        }
+
+        progress {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            display: block;
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 0.75rem;
+            color: #273238;
+        }
+
+        progress::-webkit-progress-bar {
+            background-color: #eee;
+            border-radius: 8px;
+        }
+
+        progress::-webkit-progress-value {
+            background-color: #273238;
+            border-radius: 8px;
+        }
+
+
+    </style>
+</head>
+<body>
+
+<table width=460>
+    <tr>
+        <td colspan=2><B>Average number of readings per year per person</B></td>
+    </tr>
+    <tr>
+        <td width=60>2011</td>
+        <td width=400><img src=g1.png id=chart0 width=0 height=22 align=absmiddle> 12.8</td>
+    </tr>
+    <tr>
+        <td>2013</td>
+        <td><img src=g2.png id=chart1 width=0 height=22 align=absmiddle> 11.2</td>
+    </tr>
+    <tr>
+        <td>2015</td>
+        <td><img src=g3.png id=chart2 width=0 height=22 align=absmiddle> 9.1</td>
+    </tr>
+    <tr>
+        <td>2017</td>
+        <td><img src=g4.png id=chart3 width=0 height=22 align=absmiddle> 8.3</td>
+    </tr>
+</table>
+
+
+<script language=javascript>
+
+    var data=new Array(230,180,142,113);
+
+    for(i=0;i<4;i++){
+        if(eval("chart" + i + ".width") < data[i]){
+            gph("chart" + i,data[i]);
+        }
+    }
+
+    function gph(what,limit){
+        if(eval(what + ".width") < limit){
+            if(eval(what + ".width")+5 > limit)
+                eval(what +".width=" + limit);
+            else
+                eval(what +".width=" + what + ".width + 5");
+            setTimeout("gph('"+ what + "'," + limit + ")",50);
+        }
+    }
+</script>
+
+<div class="progressbar-container">
+    <progressbar v-for="(item, index) in items" :target="item.value">
+        <div class="progress-value" slot-scope="props">
+            <span class="lang">{{ item.key }}</span>
+            <span :class="props.text">{{ item.value }} %</span>
+        </div>
+    </progressbar>
+</div>
+
+<progress value-="50" max="100"/>
+
+</body>
