@@ -16,6 +16,7 @@
 
 
 
+
     <!--slick / aos -->
     <link rel="stylesheet" type="text/css" href="./first_style2.css"/>
     <link rel="stylesheet" type="text/css" href="./slick/slick.css"/>
