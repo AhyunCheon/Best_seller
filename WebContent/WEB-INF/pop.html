@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Completed</title>
+</head>
+<body>
+	<script>
+            function myMap() {
+                var mapCanvas = document.getElementById("map");
+                var myCenter = new google.maps.LatLng(36.625556,127.454387);
+                var mapOptions = {
+                    center: myCenter,
+                    zoom: 18
+                };
+                var map = new google.maps.Map(mapCanvas, mapOptions);
+
+                var marker = new google.maps.Marker({
+                    position:myCenter,
+                    animation:google.maps.Animation.BOUNCE,
+                    icon:'pointer.png'
+                });
+                marker.setMap(map);
+            }
+            
+    </script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBAlOjojzJqN5CEy7iGWtTTiWgCMiPUhXI&callback=myMap"></script>
+</body>
+</html>
