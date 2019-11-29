@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+        <script>
+            $(function() {
+                $(".meter > span").each(function() {
+                    $(this)
+                        .data("origWidth", $(this).width())
+                        .width(0)
+                        .animate({
+                            width: $(this).data("origWidth")
+                        }, 1200);
+                });
+            });
+        </script>
+<style>
+    *{
+        font-family: Bahnschrift, "나눔스퀘어";
+    }
+    body{
+        margin: 0;
+        background-image: url("bg.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: right top;
+        background-attachment: fixed;
+        color: white;
+    }
+    .topnav {
+        z-index: 9999;
+        margin-right: auto;
+        overflow: hidden;
+        background-color: rgba(207,212,206,0.7);
+        text-align: center;
+        /* transition: top .25s ease .5s;*/
+        position: fixed;
+        width: 100%;
+        left:0px;
+        top:0px;
+        display:none;
+    }
+    #a1{
+        margin-left: 37%;
+    }
+    .topnav a {
+        float: left;
+        display: block;
+        color: white;
+        font-size: 27px;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+    /* Change color on hover */
+    .topnav a:hover {
+        background-color: rgb(190, 163, 194);
+        color: white;
+    }
+    #top{
+        margin:0;
+        height: 300px;
+        background-color: rgba(49,47,55,0.5);
+        color:white;
+        text-align: center;
+    }
+    #aboutUs{
+        margin: 0;
+        padding-top: 70px;
+        font-size: 60px;
+    }
+    #intro{
+
+    }
+    .box{
+        margin-top: 100px;
+        margin-bottom: 100px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 50px 50px;
+    }
+    .meter {
+        height: 25px;  /* Can be anything */
+        width: 500px;
+        position: relative;
+        margin: 60px 0 20px 0; /* Just for demo spacing */
+        background: #555;
+        border-radius:5px;
+        padding: 10px;
+        box-shadow : inset 0 -1px 1px rgba(255,255,255,0.3);
+    }
+    .meter > span {
+        display: block;
+        height: 100%;
+        border-top-right-radius: 3px;
+        border-bottom-right-radius: 3px;
+        border-top-left-radius: 3px;
+        border-bottom-left-radius: 3px;
+        -webkit-box-shadow:
+                inset 0 2px 9px  rgba(255,255,255,0.3),
+                inset 0 -2px 6px rgba(0,0,0,0.4);
+        box-shadow:
+                inset 0 2px 9px  rgba(255,255,255,0.3),
+                inset 0 -2px 6px rgba(0,0,0,0.4);
+        position: relative;
+        overflow: hidden;
+    }
+    .meter > span:after, .animate > span > span {
+        content: "";
+        position: absolute;
+        top: 0; left: 0; bottom: 0; right: 0;
+        background-image:
+                -webkit-gradient(linear, 0 0, 100% 100%,
+                color-stop(.25, rgba(255, 255, 255, .2)),
+                color-stop(.25, transparent), color-stop(.5, transparent),
+                color-stop(.5, rgba(255, 255, 255, .2)),
+                color-stop(.75, rgba(255, 255, 255, .2)),
+                color-stop(.75, transparent), to(transparent)
+                );
+        background-image:
+                -moz-linear-gradient(
+                        -45deg,
+                        rgba(255, 255, 255, .2) 25%,
+                        transparent 25%,
+                        transparent 50%,
+                        rgba(255, 255, 255, .2) 50%,
+                        rgba(255, 255, 255, .2) 75%,
+                        transparent 75%,
+                        transparent
+                );
+        z-index: 1;
+        -webkit-background-size: 50px 50px;
+        -webkit-animation: move 2s linear infinite;
+
+        border-top-right-radius: 3px;
+        border-bottom-right-radius: 3px;
+
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+        overflow: hidden;
+    }
+
+    @-webkit-keyframes move {
+        0% {
+            background-position: 0 0;
+        }
+        100% {
+            background-position: 50px 50px;
+        }
+    }
+
+    .orange > span {
+        background-color: #f1a165;
+        background-image: -moz-linear-gradient(top, #f1a165, #f36d0a);
+        background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #f1a165),color-stop(1, #f36d0a));
+        background-image: -webkit-linear-gradient(#f1a165, #f36d0a);
+    }
+
+    .nostripes > span > span, .nostripes > span:after {
+        -webkit-animation: none;
+        background-image: none;
+    }
+
+    footer{
+        background-color: #38324C;
+        color: white;
+        font-size: 18px;
+    }
+    .footNav {
+        margin-right: auto;
+        overflow: hidden;
+        background-color: #312F37;
+        text-align: center;
+    }
+    .footNav a {
+        float: left;
+        display: block;
+        color: white;
+        font-size: 18px;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+    /* Change color on hover */
+    .footNav a:hover {
+        background-color: #D1D3CF;
+        color: #6C4F70;
+    }
+
+</style>
+</head>
+<body>
+<div class="topnav"> <!--This is menu bar.-->
+    <a href="first.html" id="a1">HOME</a>
+    <a href="#">GIFT</a>
+    <a href="#">EXCHANGE</a>
+    <a href="#">DONATION</a>
+</div>
+
+<script type="text/javascript">
+    $(function(){
+        var vi = 600;  // 하단에 메뉴 표시할 스크롤 위치값 지정
+        $(window).scroll(function(){
+            var num = $(window).scrollTop();
+
+            if( num > vi ){
+                $(".topnav").fadeIn();
+            }else{
+                $(".topnav").fadeOut();
+            }
+        });
+    });
+</script>
+<div id="top">
+    <h1 id="aboutUs">About Us</h1>
+    <h1>Best Seller</h1>
+</div>
+<div class=box style="width:80%; height: 80%; background-color: rgba(49,47,55,0.5)">
+<h1 id="intro" style="text-align: center; font-size: 40px;">Live always in best company when you read.</h1>
+<br/><br/><br/><br/><br/><br/>
+    <div style="margin-left: 10%;">
+    <table width=550>
+        <tr>
+            <td colspan=2><B style="font-size: 25px;">Average number of readings per year per person</B><br/><br/></td>
+        </tr>
+        <tr>
+            <td width=60>2011</td>
+            <td width=400><img src=g1.png id=chart0 width=0 height=22 align=absmiddle> 12.8</td>
+        </tr>
+        <tr >
+            <td>2013</td>
+            <td><img src=g2.png id=chart1 width=0 height=22 align=absmiddle> 11.2</td>
+        </tr>
+        <tr>
+            <td>2015</td>
+            <td><img src=g3.png id=chart2 width=0 height=22 align=absmiddle> 9.1</td>
+        </tr>
+        <tr>
+            <td>2017</td>
+            <td><img src=g4.png id=chart3 width=0 height=22 align=absmiddle> 8.3</td>
+        </tr>
+    </table>
+    </div>
+
+    <script language=javascript>
+
+        var data=new Array(230,180,142,113);
+
+        for(i=0;i<4;i++){
+            if(eval("chart" + i + ".width") < data[i]){ //eval 함수는 문자열을 코드로 인식하게하는 함수
+                gph("chart" + i,data[i]);
+            }
+        }
+
+        function gph(what,limit){
+            if(eval(what + ".width") < limit){
+                if(eval(what + ".width")+5 > limit)
+                    eval(what +".width=" + limit);
+                else
+                    eval(what +".width=" + what + ".width + 5");
+                setTimeout("gph('"+ what + "'," + limit + ")",50);
+            }
+        }
+    </script>
+    <div>
+        Look at this graph, and you can see that reading continues to decrease.
+        Also, there are about 60% of adults who have not read a book in Korea in a year.
+        So we try to create some events to improve out reading.
+    </div>
+   <div class="meter orange nostripes">
+        <span style="width: 50.3%; font-size:20px;">&nbsp;&nbsp;&nbsp;50.3%</span>
+    </div>
+
+    <br/><br/><br/><br/><br/><br/><br/>
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+    <br/><br/><br/><br/><br/>
+</div>
+
+
+
+<div class="footNav"> <!--This is menu bar.-->
+    <a href="aboutUs.html" style="margin-left: 20px;">About Us</a>
+    <a href="#order">Privacy Statement</a>
+    <a href="#event">FAQ</a>
+    <a href="#contact">Site map</a>
+    <a href="#" style="margin-left: 70%;" class="top"> &nbsp;TOP&nbsp; </a>
+</div>
+<footer>
+    <br/><br/>
+    <div style="margin-left: 40px;">
+        <p>Team / Best Seller</p>
+        <p>Member / Cheon, Ahyun &nbsp;|&nbsp; Kim, Jung Hoon &nbsp;|&nbsp; Lee, Eun Taek
+        <p>Instagram / @a_hyun1000 &nbsp;|&nbsp; @letoasis &nbsp;|&nbsp; @hooonij</p>
+        <p>Address / 1, Cheongdaero, Seowon-gu, Cheoungju, Chungbuk</p>
+        <p>COPYRIGHT(C)2019 BEST SELLER. ALL RIGHTS RESERVED. &nbsp;DESIGN BY BEST SELLER</p>
+    </div>
+    <br/><br/>
+</footer>
+</body>
+</html>
